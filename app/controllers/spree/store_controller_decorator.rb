@@ -4,9 +4,7 @@ module Spree
 
      private
      def setRansack
-       @searcher = build_searcher(params.merge(include_images: true))
-       @products = @searcher.retrieve_products
-       @search = @products.search(params[:q])
+       @search = Spree::Product.search(params[:q])
      end
   end
 end
