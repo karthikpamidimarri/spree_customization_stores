@@ -55,7 +55,7 @@ class window.Spree
 
     states_search: @pathFor('api/v1/states')
     get_current_order: (data) ->
-      Spree.pathFor("/api/v1/orders/#{data.number}/?order_token=#{data.token}")
+      Spree.pathFor("/api/v1/orders/#{data.number}/?order_token=#{data.guest_token}")
     apply_coupon_code: (order_id) ->
       Spree.pathFor("api/v1/orders/#{order_id}/apply_coupon_code")
 
