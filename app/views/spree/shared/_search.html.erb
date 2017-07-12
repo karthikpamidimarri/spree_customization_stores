@@ -1,0 +1,11 @@
+<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+
+<% if session[:supplier_id] != nil %>
+    <%= form_tag spree.supplier_path(session[:supplier_id]), :method => :get, class: "navbar-form" do %>
+
+        <div class="form-group">
+          <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), class: "form-control" %>
+        </div>
+        <%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-success" %>
+    <% end %>
+<% end %>
